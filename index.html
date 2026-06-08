@@ -47,7 +47,8 @@
         ],
         "sameAs": [
             "https://www.facebook.com/profile.php?id=61590066426535",
-            "https://www.instagram.com/2ce_munich/"
+            "https://www.instagram.com/2ce_munich?igsh=MWgzd2dyODU4ejIwaA==",
+            "https://www.tiktok.com/@beautynails.munich?_r=1&_t=ZS-972IEqOMAjt"
         ]
     }
     </script>
@@ -422,15 +423,18 @@
 
         /* Hero */
         .hero {
+            --hero-image-x: 68%;
+            --hero-image-y: 62%;
             position: relative;
             display: flex;
             align-items: center;
-            min-height: 86vh;
-            padding: calc(var(--header-height) + 54px) 0 70px;
+            min-height: 88vh;
+            padding: calc(var(--header-height) + 58px) 0 74px;
             color: var(--cream);
             background:
-                linear-gradient(90deg, rgba(23, 21, 19, 0.86), rgba(111, 78, 55, 0.62), rgba(23, 21, 19, 0.22)),
-                url("image_1780554335600.jpg") center calc(42% + var(--hero-parallax, 0px)) / cover no-repeat;
+                linear-gradient(90deg, rgba(16, 13, 11, 0.94) 0%, rgba(49, 35, 27, 0.8) 34%, rgba(111, 78, 55, 0.32) 62%, rgba(16, 13, 11, 0.12) 100%),
+                linear-gradient(180deg, rgba(16, 13, 11, 0.06) 0%, rgba(16, 13, 11, 0.44) 100%),
+                url("%E1%BA%A3nh%20hero.jpg") var(--hero-image-x) calc(var(--hero-image-y) + var(--hero-parallax, 0px)) / cover no-repeat;
             overflow: hidden;
         }
 
@@ -438,10 +442,11 @@
             position: absolute;
             inset: 0;
             content: "";
-            background: radial-gradient(circle at 22% 28%, rgba(201, 166, 107, 0.22), transparent 34%);
-            opacity: 0.72;
+            background:
+                linear-gradient(90deg, rgba(255, 253, 249, 0.06), transparent 42%),
+                linear-gradient(180deg, rgba(23, 21, 19, 0) 54%, rgba(23, 21, 19, 0.44));
+            opacity: 1;
             pointer-events: none;
-            mix-blend-mode: screen;
         }
 
         .hero::after {
@@ -456,7 +461,8 @@
             position: relative;
             z-index: 1;
             width: 100%;
-            max-width: 760px;
+            max-width: 720px;
+            text-shadow: 0 2px 22px rgba(0, 0, 0, 0.34);
         }
 
         .hero-kicker {
@@ -477,9 +483,9 @@
         }
 
         .hero p {
-            max-width: 650px;
+            max-width: 610px;
             margin-top: 22px;
-            color: rgba(248, 245, 240, 0.84);
+            color: rgba(248, 245, 240, 0.88);
             font-size: 1.14rem;
             overflow-wrap: break-word;
         }
@@ -1155,9 +1161,16 @@
             justify-content: center;
             flex-direction: column;
             gap: 6px;
-            padding: 22px 0;
+            padding: 24px 0;
+            color: rgba(248, 245, 240, 0.72);
             font-size: 0.9rem;
             text-align: center;
+            background: rgba(0, 0, 0, 0.16);
+        }
+
+        .footer-bottom span:last-child {
+            color: var(--champagne);
+            font-weight: 600;
         }
 
         .back-to-top {
@@ -1392,9 +1405,10 @@
             }
 
             .hero {
+                --hero-image-x: 58%;
+                --hero-image-y: 50%;
                 min-height: 82vh;
                 padding-bottom: 58px;
-                background-position: center center;
             }
 
             .about-grid,
@@ -1450,12 +1464,20 @@
             }
 
             .hero {
+                --hero-image-x: 56%;
+                --hero-image-y: 48%;
                 min-height: 78vh;
                 padding-top: calc(var(--header-height) + 34px);
             }
 
+            .hero-content {
+                max-width: 340px;
+            }
+
             .hero p {
+                max-width: 100%;
                 font-size: 1rem;
+                line-height: 1.64;
             }
 
             .hero-actions,
@@ -1532,6 +1554,11 @@
         @media (max-width: 460px) {
             h1 {
                 font-size: 1.95rem;
+            }
+
+            .hero {
+                --hero-image-x: 54%;
+                --hero-image-y: 47%;
             }
 
             .brand span {
@@ -1893,77 +1920,62 @@
                 </div>
 
                 <div class="gallery-grid">
-                    <button class="gallery-item tall reveal" type="button" data-lightbox="image_1710554318847.jpg" data-title="Farbiges Nail Art mit 3D-Blumen">
-                        <img src="image_1710554318847.jpg" alt="Farbiges Nail Art mit 3D-Blumen" loading="lazy">
+                    <button class="gallery-item tall reveal" type="button" data-lightbox="new1.jpg" data-title="Neues Nail Art Design 1">
+                        <img src="new1.jpg" alt="Neues Nail Art Design 1" loading="lazy">
                     </button>
-                    <button class="gallery-item medium reveal" type="button" data-lightbox="image_178055431812128474.jpg" data-title="Pediküre mit elegantem French Finish">
-                        <img src="image_178055431812128474.jpg" alt="Pediküre mit elegantem French Finish" loading="lazy">
+                    <button class="gallery-item medium reveal" type="button" data-lightbox="new2.jpg" data-title="Neues Nail Art Design 2">
+                        <img src="new2.jpg" alt="Neues Nail Art Design 2" loading="lazy">
                     </button>
-                    <button class="gallery-item compact reveal" type="button" data-lightbox="image_1780554318847.jpg" data-title="French Design mit zarter Blüte">
-                        <img src="image_1780554318847.jpg" alt="French Design mit zarter Blüte" loading="lazy">
+                    <button class="gallery-item compact reveal" type="button" data-lightbox="new3.jpg" data-title="Neues Nail Art Design 3">
+                        <img src="new3.jpg" alt="Neues Nail Art Design 3" loading="lazy">
                     </button>
-                    <button class="gallery-item medium reveal" type="button" data-lightbox="image_17805543188474.jpg" data-title="Edle Schwarz-Weiß Akzente">
-                        <img src="image_17805543188474.jpg" alt="Edle Schwarz-Weiß Akzente" loading="lazy">
+                    <button class="gallery-item medium reveal" type="button" data-lightbox="new4.jpg" data-title="Neues Nail Art Design 4">
+                        <img src="new4.jpg" alt="Neues Nail Art Design 4" loading="lazy">
                     </button>
-                    <button class="gallery-item compact reveal" type="button" data-lightbox="image_1780554318849.jpg" data-title="Zarter rosafarbener French Stil">
-                        <img src="image_1780554318849.jpg" alt="Zarter rosafarbener French Stil" loading="lazy">
+                    <button class="gallery-item compact reveal" type="button" data-lightbox="new5.jpg" data-title="Neues Nail Art Design 5">
+                        <img src="new5.jpg" alt="Neues Nail Art Design 5" loading="lazy">
                     </button>
-                    <button class="gallery-item tall reveal" type="button" data-lightbox="image_1780554318851.jpg" data-title="Weiße Details mit zarter Textur">
-                        <img src="image_1780554318851.jpg" alt="Weiße Details mit zarter Textur" loading="lazy">
+                    <button class="gallery-item tall reveal" type="button" data-lightbox="new6.jpg" data-title="Neues Nail Art Design 6">
+                        <img src="new6.jpg" alt="Neues Nail Art Design 6" loading="lazy">
                     </button>
-                    <button class="gallery-item medium reveal" type="button" data-lightbox="image_1780554318854.jpg" data-title="Goldgrüne Akzente">
-                        <img src="image_1780554318854.jpg" alt="Goldgrüne Akzente" loading="lazy">
+                    <button class="gallery-item medium reveal" type="button" data-lightbox="new7.jpg" data-title="Neues Nail Art Design 7">
+                        <img src="new7.jpg" alt="Neues Nail Art Design 7" loading="lazy">
                     </button>
-                    <button class="gallery-item compact reveal" type="button" data-lightbox="image_1780554318855.jpg" data-title="Elegante helle Modellage">
-                        <img src="image_1780554318855.jpg" alt="Elegante helle Modellage" loading="lazy">
+                    <button class="gallery-item compact reveal" type="button" data-lightbox="image_1710554318847.jpg" data-title="Studio Nail Design 8">
+                        <img src="image_1710554318847.jpg" alt="Studio Nail Design 8" loading="lazy">
                     </button>
-                    <button class="gallery-item tall reveal" type="button" data-lightbox="image_1780554318858.jpg" data-title="Sanfte Grüntöne mit feinem Schmuck">
-                        <img src="image_1780554318858.jpg" alt="Sanfte Grüntöne mit feinem Schmuck" loading="lazy">
+                    <button class="gallery-item tall reveal" type="button" data-lightbox="image_178055431812128474.jpg" data-title="Studio Nail Design 9">
+                        <img src="image_178055431812128474.jpg" alt="Studio Nail Design 9" loading="lazy">
                     </button>
-                    <button class="gallery-item medium reveal" type="button" data-lightbox="image_1780554318859.jpg" data-title="Klarer French Stil mit natürlicher Basis">
-                        <img src="image_1780554318859.jpg" alt="Klarer French Stil mit natürlicher Basis" loading="lazy">
+                    <button class="gallery-item medium reveal" type="button" data-lightbox="image_1780554318847.jpg" data-title="Studio Nail Design 10">
+                        <img src="image_1780554318847.jpg" alt="Studio Nail Design 10" loading="lazy">
                     </button>
-                    <button class="gallery-item compact reveal" type="button" data-lightbox="image_1780554318861.jpg" data-title="Zarte Gold- und Grüntöne">
-                        <img src="image_1780554318861.jpg" alt="Zarte Gold- und Grüntöne" loading="lazy">
+                    <button class="gallery-item compact reveal" type="button" data-lightbox="image_17805543188474.jpg" data-title="Studio Nail Design 11">
+                        <img src="image_17805543188474.jpg" alt="Studio Nail Design 11" loading="lazy">
                     </button>
-                    <button class="gallery-item tall reveal" type="button" data-lightbox="image_1780554330236.jpg" data-title="Lange rosa Modellage">
-                        <img src="image_1780554330236.jpg" alt="Lange rosa Modellage" loading="lazy">
+                    <button class="gallery-item medium reveal" type="button" data-lightbox="image_1780554318851.jpg" data-title="Studio Nail Design 12">
+                        <img src="image_1780554318851.jpg" alt="Studio Nail Design 12" loading="lazy">
                     </button>
-                    <button class="gallery-item medium reveal" type="button" data-lightbox="image_1780554330240.jpg" data-title="Pinkes Design mit Blüten">
-                        <img src="image_1780554330240.jpg" alt="Pinkes Design mit Blüten" loading="lazy">
+                    <button class="gallery-item tall reveal" type="button" data-lightbox="image_1780554318858.jpg" data-title="Studio Nail Design 13">
+                        <img src="image_1780554318858.jpg" alt="Studio Nail Design 13" loading="lazy">
                     </button>
-                    <button class="gallery-item compact reveal" type="button" data-lightbox="image_1780554330243.jpg" data-title="Frisches Pink mit Floralmuster">
-                        <img src="image_1780554330243.jpg" alt="Frisches Pink mit Floralmuster" loading="lazy">
+                    <button class="gallery-item compact reveal" type="button" data-lightbox="image_1780554330236.jpg" data-title="Studio Nail Design 14">
+                        <img src="image_1780554330236.jpg" alt="Studio Nail Design 14" loading="lazy">
                     </button>
-                    <button class="gallery-item tall reveal" type="button" data-lightbox="image_1780554330246.jpg" data-title="Punktdesign in Mint und Schwarz">
-                        <img src="image_1780554330246.jpg" alt="Punktdesign in Mint und Schwarz" loading="lazy">
+                    <button class="gallery-item medium reveal" type="button" data-lightbox="image_1780554330240.jpg" data-title="Studio Nail Design 15">
+                        <img src="image_1780554330240.jpg" alt="Studio Nail Design 15" loading="lazy">
                     </button>
-                    <button class="gallery-item medium reveal" type="button" data-lightbox="image_1780554330249.jpg" data-title="Blaues Sternendesign">
-                        <img src="image_1780554330249.jpg" alt="Blaues Sternendesign" loading="lazy">
+                    <button class="gallery-item tall reveal" type="button" data-lightbox="image_1780554330249.jpg" data-title="Studio Nail Design 16">
+                        <img src="image_1780554330249.jpg" alt="Studio Nail Design 16" loading="lazy">
                     </button>
-                    <button class="gallery-item compact reveal" type="button" data-lightbox="image_1780554330251.jpg" data-title="Rotes Design mit Blume">
-                        <img src="image_1780554330251.jpg" alt="Rotes Design mit Blume" loading="lazy">
+                    <button class="gallery-item compact reveal" type="button" data-lightbox="image_1780554330251.jpg" data-title="Studio Nail Design 17">
+                        <img src="image_1780554330251.jpg" alt="Studio Nail Design 17" loading="lazy">
                     </button>
-                    <button class="gallery-item tall reveal" type="button" data-lightbox="image_1780554330254.jpg" data-title="Blaues Design mit Glanzfinish">
-                        <img src="image_1780554330254.jpg" alt="Blaues Design mit Glanzfinish" loading="lazy">
+                    <button class="gallery-item medium reveal" type="button" data-lightbox="image_1780554335603.jpg" data-title="Studio Nail Design 18">
+                        <img src="image_1780554335603.jpg" alt="Studio Nail Design 18" loading="lazy">
                     </button>
-                    <button class="gallery-item medium reveal" type="button" data-lightbox="image_1780554330256.jpg" data-title="Kühles Blau mit Sternen">
-                        <img src="image_1780554330256.jpg" alt="Kühles Blau mit Sternen" loading="lazy">
-                    </button>
-                    <button class="gallery-item compact reveal" type="button" data-lightbox="image_1780554330259.jpg" data-title="Marineblau mit feinen Details">
-                        <img src="image_1780554330259.jpg" alt="Marineblau mit feinen Details" loading="lazy">
-                    </button>
-                    <button class="gallery-item tall reveal" type="button" data-lightbox="image_1780554330260.jpg" data-title="Sanftes Blütendesign">
-                        <img src="image_1780554330260.jpg" alt="Sanftes Blütendesign" loading="lazy">
-                    </button>
-                    <button class="gallery-item medium reveal" type="button" data-lightbox="image_1780554335600.jpg" data-title="Natürliches French Finish">
-                        <img src="image_1780554335600.jpg" alt="Natürliches French Finish" loading="lazy">
-                    </button>
-                    <button class="gallery-item compact reveal" type="button" data-lightbox="image_1780554335603.jpg" data-title="Rosé Verlängerung">
-                        <img src="image_1780554335603.jpg" alt="Rosé Verlängerung" loading="lazy">
-                    </button>
-                    <button class="gallery-item tall reveal" type="button" data-lightbox="image_1780554335606.jpg" data-title="Elegante eckige Form">
-                        <img src="image_1780554335606.jpg" alt="Elegante eckige Form" loading="lazy">
+                    <button class="gallery-item compact reveal" type="button" data-lightbox="image_1780554335606.jpg" data-title="Studio Nail Design 19">
+                        <img src="image_1780554335606.jpg" alt="Studio Nail Design 19" loading="lazy">
                     </button>
                 </div>
             </div>
@@ -2126,7 +2138,7 @@
                             allowfullscreen
                             loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.337616878877!2d11.5494441!3d48.142295999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e7719e08afc4b%3A0x685af8a89a718a24!2s2CE%20Beauty%26Nails!5e0!3m2!1svi!2s!4v1780580036895!5m2!1svi!2s">
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.337618370299!2d11.546869176262417!3d48.14229597124403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e7600c66a6523%3A0x781709a6659e3703!2sMunich%20Nails%20in%20the%20Central%20Bus%20Station!5e0!3m2!1svi!2s!4v1780904523211!5m2!1svi!2s">
                         </iframe>
                     </div>
                 </div>
@@ -2163,8 +2175,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/2ce_munich/" target="_blank" rel="noopener" aria-label="Instagram öffnen" title="Instagram">
+                        <a href="https://www.instagram.com/2ce_munich?igsh=MWgzd2dyODU4ejIwaA==" target="_blank" rel="noopener" aria-label="Instagram öffnen" title="Instagram">
                             <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.tiktok.com/@beautynails.munich?_r=1&amp;_t=ZS-972IEqOMAjt" target="_blank" rel="noopener" aria-label="TikTok öffnen" title="TikTok">
+                            <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
                         </a>
                     </li>
                     <li>
@@ -2180,8 +2197,8 @@
             </div>
         </div>
         <div class="container footer-bottom">
-            <span>&copy; 2026 All Rights Reserved</span>
-            <span>Designed by Hoangcaster</span>
+            <span>&copy; 2026 Alle Rechte vorbehalten</span>
+            <span>Gestaltung von Hoangcaster</span>
         </div>
     </footer>
 
@@ -2215,13 +2232,13 @@
                 <h3>Verantwortlich für den Inhalt</h3>
                 <p>2CE Nails Munich, Hackerbrücke 4-6, 80335 München, Deutschland.</p>
                 <h3>Online-Auftritt</h3>
-                <p>Instagram: <a href="https://www.instagram.com/2ce_munich/" target="_blank" rel="noopener">@2ce_munich</a><br>Facebook: <a href="https://www.facebook.com/profile.php?id=61590066426535" target="_blank" rel="noopener">2CE Nails Munich</a></p>
+                <p>Instagram: <a href="https://www.instagram.com/2ce_munich?igsh=MWgzd2dyODU4ejIwaA==" target="_blank" rel="noopener">@2ce_munich</a><br>TikTok: <a href="https://www.tiktok.com/@beautynails.munich?_r=1&amp;_t=ZS-972IEqOMAjt" target="_blank" rel="noopener">@beautynails.munich</a><br>Facebook: <a href="https://www.facebook.com/profile.php?id=61590066426535" target="_blank" rel="noopener">2CE Nails Munich</a></p>
             </div>
             <div class="legal-content legal-content-datenschutz" hidden>
                 <h2>Datenschutz</h2>
                 <p>Wir behandeln personenbezogene Daten vertraulich. Wenn Sie uns per Telefon, WhatsApp oder E-Mail kontaktieren, nutzen wir Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage und Terminabstimmung.</p>
                 <h3>Externe Dienste</h3>
-                <p>Diese Website bindet Google Fonts, Font Awesome, Google Maps sowie Links zu Instagram, Facebook und WhatsApp ein. Beim Aufruf dieser Dienste können Daten an die jeweiligen Anbieter übertragen werden.</p>
+                <p>Diese Website bindet Google Fonts, Font Awesome, Google Maps sowie Links zu Instagram, TikTok, Facebook und WhatsApp ein. Beim Aufruf dieser Dienste können Daten an die jeweiligen Anbieter übertragen werden.</p>
                 <h3>Kontakt</h3>
                 <p>Bei Fragen zum Datenschutz erreichen Sie uns unter <a href="mailto:info@2cenails-munich.de">info@2cenails-munich.de</a>.</p>
             </div>
