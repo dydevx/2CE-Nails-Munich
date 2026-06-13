@@ -634,7 +634,8 @@
         .price-card::after,
         .video-card::after,
         .review-card::after,
-        .why-item::after {
+        .why-item::after,
+        .social-profile-card::after {
             position: absolute;
             inset: 0;
             content: "";
@@ -655,7 +656,8 @@
         .price-card:hover::after,
         .video-card:hover::after,
         .review-card:hover::after,
-        .why-item:hover::after {
+        .why-item:hover::after,
+        .social-profile-card:hover::after {
             opacity: 1;
             transform: translateX(130%);
         }
@@ -813,41 +815,30 @@
 
         /* Gallery */
         .gallery-grid {
-            column-count: 4;
-            column-gap: 18px;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
         }
 
         .gallery-item {
             position: relative;
             display: block;
             width: 100%;
-            margin: 0 0 18px;
+            aspect-ratio: 4 / 5;
+            margin: 0;
             padding: 0;
             overflow: hidden;
             border: 0;
             border-radius: 8px;
             cursor: pointer;
             background: var(--beige);
-            break-inside: avoid;
         }
 
         .gallery-item img {
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: cover;
             transition: transform 420ms ease, filter 420ms ease;
-        }
-
-        .gallery-item.tall img {
-            aspect-ratio: 2 / 3;
-        }
-
-        .gallery-item.medium img {
-            aspect-ratio: 3 / 4;
-        }
-
-        .gallery-item.compact img {
-            aspect-ratio: 4 / 5;
         }
 
         .gallery-item::after {
@@ -983,6 +974,243 @@
         .why-item p {
             color: rgba(248, 245, 240, 0.74);
             font-size: 0.94rem;
+        }
+
+        /* Social profiles */
+        .social-showcase {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .social-profile-card {
+            position: relative;
+            display: flex;
+            min-width: 0;
+            flex-direction: column;
+            gap: 22px;
+            overflow: hidden;
+            padding: 28px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background:
+                linear-gradient(145deg, rgba(255, 253, 249, 0.96), rgba(248, 245, 240, 0.74)),
+                var(--ivory);
+            box-shadow: 0 16px 42px rgba(36, 29, 23, 0.1);
+            transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+        }
+
+        .social-profile-card:hover,
+        .social-profile-card:focus-within {
+            border-color: rgba(201, 166, 107, 0.62);
+            box-shadow: var(--shadow);
+            transform: translateY(-5px);
+        }
+
+        .social-card-head,
+        .social-card-foot {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .social-card-head h3 {
+            color: var(--ink);
+            font-family: "Poppins", Arial, sans-serif;
+            font-size: 1.9rem;
+            font-weight: 500;
+        }
+
+        .social-open-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--coffee);
+            font-weight: 800;
+            white-space: nowrap;
+            transition: color 180ms ease, transform 180ms ease;
+        }
+
+        .social-open-link:hover,
+        .social-open-link:focus-visible {
+            color: var(--champagne);
+            transform: translateX(2px);
+        }
+
+        .social-phone-preview {
+            position: relative;
+            z-index: 1;
+            padding: 22px;
+            border: 1px solid rgba(111, 78, 55, 0.12);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.82);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7), 0 12px 30px rgba(36, 29, 23, 0.08);
+        }
+
+        .social-profile-top {
+            display: grid;
+            grid-template-columns: 66px 1fr;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .social-avatar {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 66px;
+            height: 66px;
+            overflow: hidden;
+            border: 1px solid rgba(201, 166, 107, 0.46);
+            border-radius: 50%;
+            background: var(--cream);
+        }
+
+        .social-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-profile-name {
+            display: block;
+            color: var(--charcoal);
+            font-size: 1.18rem;
+            font-weight: 800;
+            line-height: 1.25;
+            overflow-wrap: anywhere;
+        }
+
+        .social-profile-note {
+            display: block;
+            margin-top: 6px;
+            color: rgba(36, 33, 30, 0.62);
+            font-size: 0.92rem;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .social-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin: 22px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .social-stats li {
+            display: grid;
+            gap: 2px;
+            min-width: 0;
+            color: rgba(36, 33, 30, 0.58);
+            font-size: 0.82rem;
+            line-height: 1.3;
+        }
+
+        .social-stats strong {
+            color: var(--ink);
+            font-size: 1.24rem;
+            line-height: 1.1;
+        }
+
+        .social-media-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .social-thumb {
+            position: relative;
+            overflow: hidden;
+            border-radius: 6px;
+            background: var(--cream);
+        }
+
+        .social-thumb img {
+            width: 100%;
+            aspect-ratio: 1 / 1.18;
+            object-fit: cover;
+            transition: transform 260ms ease;
+        }
+
+        .social-profile-card:hover .social-thumb img {
+            transform: scale(1.05);
+        }
+
+        .social-thumb span {
+            position: absolute;
+            right: 8px;
+            bottom: 7px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: white;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.42);
+        }
+
+        .social-platform-label {
+            display: grid;
+            gap: 2px;
+            min-width: 0;
+        }
+
+        .social-platform-label strong {
+            color: var(--charcoal);
+            font-size: 1.15rem;
+            line-height: 1.2;
+        }
+
+        .social-platform-label span {
+            color: rgba(36, 33, 30, 0.62);
+            font-size: 0.9rem;
+            line-height: 1.45;
+        }
+
+        .social-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 0 20px;
+            border-radius: 6px;
+            color: var(--charcoal);
+            background: var(--champagne);
+            font-weight: 800;
+            white-space: nowrap;
+            transition: transform 180ms ease, background 180ms ease;
+        }
+
+        .social-cta:hover,
+        .social-cta:focus-visible {
+            background: #d8ba82;
+            transform: translateY(-2px);
+        }
+
+        .social-profile-card.is-instagram .social-cta {
+            color: var(--cream);
+            background: linear-gradient(135deg, #8a3ab9, #e95950, #fccc63);
+        }
+
+        .social-profile-card.is-instagram .social-cta:hover,
+        .social-profile-card.is-instagram .social-cta:focus-visible {
+            background: linear-gradient(135deg, #7b2eaa, #db4a44, #f0b94f);
+        }
+
+        .social-profile-card.is-tiktok .social-cta {
+            color: var(--cream);
+            background: var(--charcoal);
+        }
+
+        .social-profile-card.is-tiktok .social-cta:hover,
+        .social-profile-card.is-tiktok .social-cta:focus-visible {
+            background: #2a2521;
         }
 
         /* Contact */
@@ -1372,7 +1600,8 @@
             }
 
             .services-grid,
-            .why-grid {
+            .why-grid,
+            .social-showcase {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
@@ -1385,7 +1614,7 @@
             }
 
             .gallery-grid {
-                column-count: 3;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
             }
         }
 
@@ -1427,6 +1656,7 @@
 
             .reviews-grid,
             .video-grid,
+            .social-showcase,
             .footer-main {
                 grid-template-columns: 1fr;
             }
@@ -1504,16 +1734,32 @@
             }
 
             .gallery-grid {
-                column-count: 2;
-                column-gap: 12px;
-            }
-
-            .gallery-item {
-                margin-bottom: 12px;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
             }
 
             .contact-panel {
                 padding: 24px;
+            }
+
+            .social-profile-card {
+                padding: 22px;
+            }
+
+            .social-card-head,
+            .social-card-foot {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .social-card-head h3 {
+                font-size: 1.62rem;
+            }
+
+            .social-open-link,
+            .social-cta {
+                width: 100%;
+                justify-content: center;
             }
 
             .map-panel iframe {
@@ -1571,13 +1817,43 @@
             }
 
             .gallery-grid {
-                column-count: 1;
+                grid-template-columns: 1fr;
             }
 
             .about-badge {
                 position: static;
                 width: 100%;
                 margin-top: 14px;
+            }
+
+            .social-phone-preview {
+                padding: 16px;
+            }
+
+            .social-profile-top {
+                grid-template-columns: 52px 1fr;
+                gap: 12px;
+            }
+
+            .social-avatar {
+                width: 52px;
+                height: 52px;
+            }
+
+            .social-profile-name {
+                font-size: 1.02rem;
+            }
+
+            .social-stats {
+                gap: 8px;
+            }
+
+            .social-stats strong {
+                font-size: 1rem;
+            }
+
+            .social-stats li {
+                font-size: 0.72rem;
             }
         }
 
@@ -1623,6 +1899,7 @@
                     <li><a href="#galerie">Galerie</a></li>
                     <li><a href="#videos">Videos</a></li>
                     <li><a href="#bewertungen">Bewertungen</a></li>
+                    <li><a href="#socials">Socials</a></li>
                     <li><a href="#kontakt">Kontakt</a></li>
                 </ul>
             </nav>
@@ -1941,6 +2218,9 @@
                     <button class="gallery-item medium reveal" type="button" data-lightbox="new7.jpg" data-title="Neues Nail Art Design 7">
                         <img src="new7.jpg" alt="Neues Nail Art Design 7" loading="lazy">
                     </button>
+                    <button class="gallery-item compact reveal" type="button" data-lightbox="new8.jpg" data-title="Neues Nail Art Design 8">
+                        <img src="new8.jpg" alt="Neues Nail Art Design 8" loading="lazy">
+                    </button>
                     <button class="gallery-item compact reveal" type="button" data-lightbox="image_1710554318847.jpg" data-title="Studio Nail Design 8">
                         <img src="image_1710554318847.jpg" alt="Studio Nail Design 8" loading="lazy">
                     </button>
@@ -2069,6 +2349,124 @@
             </div>
         </section>
 
+        <section class="section section-ivory" id="socials">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-label">Social Media</span>
+                    <h2>Folgen Sie unseren neuesten Designs</h2>
+                    <p class="lead">Aktuelle Nail Art, Studio-Momente und Inspiration direkt auf TikTok und Instagram.</p>
+                </div>
+
+                <div class="social-showcase">
+                    <article class="social-profile-card is-tiktok reveal">
+                        <div class="social-card-head">
+                            <h3>TikTok</h3>
+                            <a class="social-open-link" href="https://www.tiktok.com/@beautynails.munich?_r=1&amp;_t=ZS-972IEqOMAjt" target="_blank" rel="noopener" aria-label="TikTok Profil von 2CE Nails Munich oeffnen">
+                                Profil &ouml;ffnen
+                                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </a>
+                        </div>
+
+                        <div class="social-phone-preview">
+                            <div class="social-profile-top">
+                                <span class="social-avatar">
+                                    <img src="avatar.jpg" alt="2CE Nails Munich Logo">
+                                </span>
+                                <div>
+                                    <strong class="social-profile-name">@beautynails.munich</strong>
+                                    <span class="social-profile-note">Premium Nail Art &amp; Care in M&uuml;nchen</span>
+                                </div>
+                            </div>
+
+                            <ul class="social-stats" aria-label="TikTok Profil Kennzahlen">
+                                <li><strong>24</strong><span>Following</span></li>
+                                <li><strong>1.5K</strong><span>Follower</span></li>
+                                <li><strong>136</strong><span>Likes</span></li>
+                            </ul>
+
+                            <div class="social-media-row" aria-hidden="true">
+                                <div class="social-thumb">
+                                    <img src="image_1780554335603.jpg" alt="">
+                                    <span><i class="fa-solid fa-play"></i>581</span>
+                                </div>
+                                <div class="social-thumb">
+                                    <img src="new4.jpg" alt="">
+                                    <span><i class="fa-solid fa-play"></i>440</span>
+                                </div>
+                                <div class="social-thumb">
+                                    <img src="new7.jpg" alt="">
+                                    <span><i class="fa-solid fa-play"></i>897</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-card-foot">
+                            <div class="social-platform-label">
+                                <strong>TikTok</strong>
+                                <span>Kurze Videos aus dem Studio</span>
+                            </div>
+                            <a class="social-cta" href="https://www.tiktok.com/@beautynails.munich?_r=1&amp;_t=ZS-972IEqOMAjt" target="_blank" rel="noopener">
+                                TikTok &ouml;ffnen
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="social-profile-card is-instagram reveal">
+                        <div class="social-card-head">
+                            <h3>Instagram</h3>
+                            <a class="social-open-link" href="https://www.instagram.com/2ce_munich?igsh=MWgzd2dyODU4ejIwaA==" target="_blank" rel="noopener" aria-label="Instagram Profil von 2CE Nails Munich oeffnen">
+                                Profil &ouml;ffnen
+                                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </a>
+                        </div>
+
+                        <div class="social-phone-preview">
+                            <div class="social-profile-top">
+                                <span class="social-avatar">
+                                    <img src="avatar.jpg" alt="2CE Nails Munich Logo">
+                                </span>
+                                <div>
+                                    <strong class="social-profile-name">@2ce_munich</strong>
+                                    <span class="social-profile-note">Nail designs, Farben und neue Studio-Inspiration</span>
+                                </div>
+                            </div>
+
+                            <ul class="social-stats" aria-label="Instagram Profil Kennzahlen">
+                                <li><strong>70+</strong><span>Posts</span></li>
+                                <li><strong>2CE</strong><span>Munich</span></li>
+                                <li><strong>09:30</strong><span>Mo-Sa</span></li>
+                            </ul>
+
+                            <div class="social-media-row" aria-hidden="true">
+                                <div class="social-thumb">
+                                    <img src="new1.jpg" alt="">
+                                    <span><i class="fa-regular fa-heart"></i>128</span>
+                                </div>
+                                <div class="social-thumb">
+                                    <img src="new2.jpg" alt="">
+                                    <span><i class="fa-regular fa-heart"></i>96</span>
+                                </div>
+                                <div class="social-thumb">
+                                    <img src="new6.jpg" alt="">
+                                    <span><i class="fa-regular fa-heart"></i>142</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-card-foot">
+                            <div class="social-platform-label">
+                                <strong>Instagram</strong>
+                                <span>Galerie, Storys und Design-Ideen</span>
+                            </div>
+                            <a class="social-cta" href="https://www.instagram.com/2ce_munich?igsh=MWgzd2dyODU4ejIwaA==" target="_blank" rel="noopener">
+                                Instagram &ouml;ffnen
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section class="section" id="kontakt">
             <div class="container">
                 <div class="section-head reveal">
@@ -2163,6 +2561,7 @@
                     <li><a href="#preise">Preise</a></li>
                     <li><a href="#galerie">Galerie</a></li>
                     <li><a href="#videos">Videos</a></li>
+                    <li><a href="#socials">Socials</a></li>
                     <li><a href="#kontakt">Kontakt</a></li>
                 </ul>
             </div>
